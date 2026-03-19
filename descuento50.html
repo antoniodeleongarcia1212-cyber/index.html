@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descuento 50%</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #f8ffae, #43c6ac);
+    margin: 0;
+    padding: 0;
+}
+.container {
+    margin-top: 20%;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    display: inline-block;
+}
+button {
+    padding: 15px 25px;
+    font-size: 16px;
+    background-color: #43c6ac;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #2fa88f;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>🎉 50% de DESCUENTO 🎉</h1>
+    <p>Válido en tu primera compra</p>
+    <h2>Código: BIENVENIDO50</h2>
+    <button onclick="usarCupon()">Canjear cupón</button>
+    <p id="mensaje"></p>
+</div>
+
+<script>
+function usarCupon() {
+    if(localStorage.getItem("cuponUsado")) {
+        document.getElementById("mensaje").innerText = "❌ Ya usaste este cupón";
+    } else {
+        localStorage.setItem("cuponUsado", true);
+        document.getElementById("mensaje").innerText = "✅ Cupón aplicado correctamente";
+    }
+}
+</script>
+</body>
+</html>
